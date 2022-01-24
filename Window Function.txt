@@ -1,0 +1,38 @@
+Windows Function
+•	Window functions operate on a set of rows and return a single aggregated value for each row. The term Window describes the set of rows in the database on which the function will operate.
+•	Types of Windows function : 
+Aggregate Window Functions
+SUM(), MAX(), MIN(), AVG(). COUNT()
+Ranking Window Functions
+RANK(), DENSE_RANK(), ROW_NUMBER(), NTILE()
+Value Window Functions
+LAG(), LEAD(), FIRST_VALUE(), LAST_VALUE()
+•	Syntax : 
+window_function ( [ ALL ] expression ) 
+OVER ( [ PARTITION BY partition_list ] [ ORDER BY order_list] )
+
+window_function
+Specify the name of the window function
+ALL
+ALL is an optional keyword. When you will include ALL it will count all values including duplicate ones. DISTINCT is not supported in window functions
+expression
+The target column or expression that the functions operates on. In other words, the name of the column for which we need an aggregated value. For example, a column containing order amount so that we can see total orders received.
+OVER
+Specifies the window clauses for aggregate functions.
+PARTITION BY partition_list 
+Defines the window (set of rows on which window function operates) for window functions. We need to provide a field or list of fields for the partition after PARTITION BY clause. Multiple fields need be separated by a comma as usual. If PARTITION BY is not specified, grouping will be done on entire table and values will be aggregated accordingly.
+ORDER BY order_list
+Sorts the rows within each partition. If ORDER BY is not specified, ORDER BY uses the entire table.
+
+Using Where in Select Function
+
+•	The optional WHERE clause in a SELECT expression will filter the row set that the FROM clause calculated.
+•	Where_Clause :=                                                                                          
+'WHERE' Boolean_Expression.
+•	Boolean_Expression
+Specifies the Boolean predicate that acts as the filter.
+Boolean_Expression :=                                                                               
+       bool_expression
+  |    ('NOT' | '!') Boolean_Expression
+  |    Boolean_Expression ('AND' | '&&') Boolean_Expression
+  |    Boolean_Expression ('OR' | '||') Boolean_Expression.
